@@ -1,0 +1,115 @@
+{
+  "$jason": {
+    "head": {
+      "title": "Gallery Wall AR",
+      "actions": {
+        "$load": {
+          "type": "$set",
+          "options": {
+            "wf": "placeholder"
+          },
+          "success": {
+            "type": "$render"
+          }
+        },
+        "$show_wf": {
+          "type": "$set",
+          "options": {
+            "wf": "{{$get.wf_image}}"
+          },
+          "success": {
+            "type": "$render"
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "style": {
+            "background": {
+              "type": "camera",
+              "options": {
+                "device": "back"
+              }
+            }
+          },
+          "header": {
+            "title": "Gallery Wall AR",
+            "style": {
+              "background": "rgba(255,255,255,0)",
+              "color": "#ffffff"
+            }
+          },
+          "layers": [
+            [
+              {
+                "{{#if $get.wf && $get.wf != 'placeholder'}}": {
+                  "type": "image",
+                  "style": {
+                    "width": "290",
+                    "left": "50%-145",
+                    "top": "40%-145"
+                  },
+                  "url": "{{$get.wf}}"
+                }
+              }
+            ],
+            {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/anthonycaccese/gwar/master/images/reflection-btn.png",
+              "style": {
+                "width": "60",
+                "bottom": "5%",
+                "left": "25%-30"
+              },
+              "action": {
+                "type": "$set",
+                "options": {
+                  "wf_image": "https://raw.githubusercontent.com/anthonycaccese/gwar/master/images/reflection-wf.png"
+                },
+                "success": {
+                  "trigger": "$show_wf"
+                }
+              }
+            },
+            {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/anthonycaccese/gwar/master/images/checkered-btn.png",
+              "style": {
+                "width": "60",
+                "bottom": "5%",
+                "left": "50%-30"
+              },
+              "action": {
+                "type": "$set",
+                "options": {
+                  "wf_image": "https://raw.githubusercontent.com/anthonycaccese/gwar/master/images/checkered-wf.png"
+                },
+                "success": {
+                  "trigger": "$show_wf"
+                }
+              }
+            },
+            {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/anthonycaccese/gwar/master/images/spiral-btn.png",
+              "style": {
+                "width": "60",
+                "bottom": "5%",
+                "right": "25%-30"
+              },
+              "action": {
+                "type": "$set",
+                "options": {
+                  "wf_image": "https://raw.githubusercontent.com/anthonycaccese/gwar/master/images/spiral-wf.png"
+                },
+                "success": {
+                  "trigger": "$show_wf"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
