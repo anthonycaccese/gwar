@@ -1,7 +1,7 @@
 {
   "$jason": {
     "head": {
-      "title": "Gallery Wall AR",
+      "title": "HGTV Frame",
       "actions": {
         "$load": {
           "type": "$set",
@@ -33,7 +33,14 @@
             }
           },
           "header": {
-            "title": "Gallery Wall AR",
+            "title": {
+              "type": "image",
+              "style": {
+                "width": "88",
+                "height": "20"
+              },
+              "url": "https://i.imgur.com/9MO8qqn.png"
+            },
             "style": {
               "background": "rgba(255,255,255,0)",
               "color": "#ffffff"
